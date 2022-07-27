@@ -76,7 +76,9 @@ Mario-Manuel:2
 Mario-Rebeca:3
 David-Daniel:3
 Daniel-David:3
-![Image text]([https://github.com/zzuljs/CppLearning/blob/master/CppLearning/raw/master/Itachi.jpg](https://github.com/magnuel14/IOET-NodeJs-Exercise-Acme/blob/main/Result.png))
+
+![Image text]([https://github.com/magnuel14/IOET-NodeJs-Exercise-Acme/blob/main/Result.png])
+
 ## Requirements to run locally
 
 ##### Have installed:
