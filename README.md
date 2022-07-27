@@ -117,14 +117,13 @@ Daniel-David:3
 
 ![Image text](https://github.com/magnuel14/IOET-NodeJs-Exercise-Acme/blob/main/Result.png)
 
-## Requirements to run locally
-
 ##### Have installed:
 Mode in its version v12.22.12
+
 Npm in its version 7.5.2
 ## Instructions to run locally
 ##### Run the following command in the project directory:
-node node TxtToJson.js
-##### And then you need to run the following command:
 node Main.js
+##### In case the txt file has been modified, you must execute the following command:
+node TxtToJson.js
 
