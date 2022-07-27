@@ -1,7 +1,7 @@
 //module for working with files
 var fs = require('fs');
 //The json file is extracted
-let ListAcme = require('../IOET-NodeJs-Exercise/textJson.json');
+let ListAcme = require('../IOET-NodeJs-Exercise-Acme/textJson.json');
 
 /*
 Counts the number of matches between two arrays
@@ -22,15 +22,20 @@ function CounterConcidences(array1, array2) {
     */
     var arreglo1 = array1.match(/.{1,14}/g);
     var arreglo2 = array2.match(/.{1,14}/g);
-    //loop through each array, comparing content and counting matches
-    for (var i in arreglo1) {
-        for (var j in arreglo2) {
-            if (arreglo1[i] == arreglo2[j]) {
-                coincidences++;
+    try {
+        for (var i in arreglo1) {
+            for (var j in arreglo2) {
+                if (arreglo1[i] == arreglo2[j]) {
+                    coincidences++;
+                }
             }
         }
+        return coincidences
+    } catch (e) {
+        console.log("Error", e);
     }
-    return coincidences
+    //loop through each array, comparing content and counting matches
+
 }
 /*
 Go through the complete list, to make the combinations between employees and
@@ -41,24 +46,28 @@ function combineEmployeesSchedules() {
     let horario1;
     let horario2;
     var arreglofinal = '';
-    for (const i in ListAcme) {
-        let current1 = ListAcme[i];
-        let empleado1 = current1.Empleado;
-        horario1 = current1.Horario;
-        for (const j in ListAcme) {
-            let current2 = ListAcme[j];
-            let empleado2 = current2.Empleado;
-            horario2 = current2.Horario;
-            if (empleado1 != empleado2) {
-                var cont = CounterConcidences(horario1, horario2);
-                if (cont != 0) {
-                    //console.log(empleado1 + "-" + empleado2 + ":" + cont);
-                    arreglofinal += (empleado1 + "-" + empleado2 + ":" + cont + "\n");
+    try {
+        for (const i in ListAcme) {
+            let current1 = ListAcme[i];
+            let empleado1 = current1.Empleado;
+            horario1 = current1.Horario;
+            for (const j in ListAcme) {
+                let current2 = ListAcme[j];
+                let empleado2 = current2.Empleado;
+                horario2 = current2.Horario;
+                if (empleado1 != empleado2) {
+                    var cont = CounterConcidences(horario1, horario2);
+                    if (cont != 0) {
+                        //console.log(empleado1 + "-" + empleado2 + ":" + cont);
+                        arreglofinal += (empleado1 + "-" + empleado2 + ":" + cont + "\n");
+                    }
                 }
             }
         }
+        return arreglofinal
+    } catch (e) {
+        console.log("Error", e);
     }
-    return arreglofinal
 }
 
 var arrayToTxt = combineEmployeesSchedules();
